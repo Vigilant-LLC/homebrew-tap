@@ -5,21 +5,21 @@
 class Vxpwngard < Formula
   desc "CI/CD source-to-sink vulnerability scanner for GitHub Actions"
   homepage "https://github.com/Vigilant-LLC/vxpwngard"
-  version "0.1.0"
+  version "1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v0.1.0/vxpwngard_0.1.0_darwin_amd64.tar.gz"
-      sha256 "63f880411a1862ebfbcb2568c9f2afeb07288b6815a938837f9a6bb3035d0875"
+      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v1/vxpwngard_1_darwin_amd64.tar.gz"
+      sha256 "dcdd05ad03cdc6c06b5ac5c1c75797b740ac87f56cc45be027a4f1e14e32c537"
 
       define_method(:install) do
         bin.install "vxpwngard"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v0.1.0/vxpwngard_0.1.0_darwin_arm64.tar.gz"
-      sha256 "e071c4b630fddaa4c36ff4a83233c0dd142d8d74caa3694bb4963bbc428e7311"
+      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v1/vxpwngard_1_darwin_arm64.tar.gz"
+      sha256 "2f2f38a9e8486e0d1f1865381535c617da0d91cb9219e8157ce1b11fb509cd5d"
 
       define_method(:install) do
         bin.install "vxpwngard"
@@ -29,15 +29,15 @@ class Vxpwngard < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v0.1.0/vxpwngard_0.1.0_linux_amd64.tar.gz"
-      sha256 "873580a342bae72dbcc2a8e20f6a761365f4904a26ee9996861478c4d7a64cb1"
+      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v1/vxpwngard_1_linux_amd64.tar.gz"
+      sha256 "7c71c804079f588bab003592a4e09e91542e2d8b5f1b0386c275689ad8edf656"
       define_method(:install) do
         bin.install "vxpwngard"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v0.1.0/vxpwngard_0.1.0_linux_arm64.tar.gz"
-      sha256 "9d0eee3163d766c105ed8bf517a8e06ff0684d3a470542a44d1fd857324b378c"
+      url "https://github.com/Vigilant-LLC/vxpwngard/releases/download/v1/vxpwngard_1_linux_arm64.tar.gz"
+      sha256 "fe90f70b970fdb84678439113411739eb06e2c41a57bf1b15536d99ea922d42c"
       define_method(:install) do
         bin.install "vxpwngard"
       end
