@@ -14,8 +14,13 @@ class Fwknop < Formula
     system "./configure", *std_configure_args,
                           "--disable-server",
                           "--with-gpgme=no"
-    # Skip doc build (requires makeinfo/texinfo which may not be present)
-    system "make", "install", "SUBDIRS=lib client"
+    # Build common lib first, then fko library and client
+    # Skip doc/server dirs (docs require makeinfo, server not needed on clients)
+    system "make", "-C", "common"
+    system "make", "-C", "lib"
+    system "make", "-C", "client"
+    system "make", "-C", "lib", "install"
+    system "make", "-C", "client", "install"
   end
 
   test do
