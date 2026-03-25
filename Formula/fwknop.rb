@@ -14,7 +14,8 @@ class Fwknop < Formula
     system "./configure", *std_configure_args,
                           "--disable-server",
                           "--with-gpgme=no"
-    system "make", "install"
+    # Skip doc build (requires makeinfo/texinfo which may not be present)
+    system "make", "install", "SUBDIRS=lib client"
   end
 
   test do
