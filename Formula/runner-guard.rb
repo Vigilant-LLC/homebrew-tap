@@ -10,14 +10,14 @@ class RunnerGuard < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.4.7/runner-guard_2.4.7_darwin_amd64.tar.gz"
-      sha256 "54cdc936251bf1ff276970588f5b97981575a2f887fe5d9bb1e0009c1fd4c124"
+      sha256 "e8743dc6104d2fc5070cf35469a9e664c2df5c894a1776a02ff0e157d421134b"
       define_method(:install) do
         bin.install "runner-guard"
       end
     end
     if Hardware::CPU.arm?
       url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.4.7/runner-guard_2.4.7_darwin_arm64.tar.gz"
-      sha256 "5b598fee162a734980b059f3d7de72011c27a42f15624b952646eebbb29cc783"
+      sha256 "5ed6e190b134e229c04e8ec1951c4090f4d89328db45564b4005e98e47793e51"
       define_method(:install) do
         bin.install "runner-guard"
       end
@@ -27,14 +27,14 @@ class RunnerGuard < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.4.7/runner-guard_2.4.7_linux_amd64.tar.gz"
-      sha256 "25e055aa2502cac044718b266833f82807cceb6cd179d29a31d623224f3d249c"
+      sha256 "e091db914ca7ba16a6353a2fcfb718d41bc744771bf23b9ba3b630d129b0dae0"
       define_method(:install) do
         bin.install "runner-guard"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.4.7/runner-guard_2.4.7_linux_arm64.tar.gz"
-      sha256 "be4f3ba83e2c319349037bdaed24583ee047763301974d9a8be4aa3dd7d7992d"
+      sha256 "9900291e7b3e850e5faa9f450a61e33612ec1d448f1e476470e7bdc889f9e3ff"
       define_method(:install) do
         bin.install "runner-guard"
       end
