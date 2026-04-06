@@ -2,46 +2,48 @@
 # frozen_string_literal: true
 
 class RunnerGuard < Formula
-  desc "CI/CD source-to-sink vulnerability scanner for GitHub Actions"
+  desc "CI/CD supply chain security scanner for GitHub Actions"
   homepage "https://github.com/Vigilant-LLC/runner-guard"
-  version "2.8.0"
+  version "2.9.0"
   license "AGPL-3.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.8.0/runner-guard_2.8.0_darwin_amd64.tar.gz"
-      sha256 "3a370b8c01a29a5391ad332ec322687d61b7a6b045e7789ea5305e1dfada5096"
+      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.9.0/runner-guard_2.9.0_darwin_amd64.tar.gz"
+      sha256 "4503d1c6451f1bcc8c4ee908dd1ec8cc20fa6e5534b945c31c88a8b43b684f2c"
+
       define_method(:install) do
-        bin.install "runner-guard"
+        bin.install "runner-guard-darwin-amd64" => "runner-guard"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.8.0/runner-guard_2.8.0_darwin_arm64.tar.gz"
-      sha256 "74c2748674d4c28653809defb17a5af47496b662e0d5163b565545f025d610ea"
+      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.9.0/runner-guard_2.9.0_darwin_arm64.tar.gz"
+      sha256 "535b14f58384217f827765b2d2f20bcf07be6db5538105bceddc4720820d192d"
+
       define_method(:install) do
-        bin.install "runner-guard"
+        bin.install "runner-guard-darwin-arm64" => "runner-guard"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.8.0/runner-guard_2.8.0_linux_amd64.tar.gz"
-      sha256 "35be6e50c673e7c3848fd5ba3169bfc84ff4fff809c8ae4755081cd7b750e1bd"
+      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.9.0/runner-guard_2.9.0_linux_amd64.tar.gz"
+      sha256 "61bbed2a6e9c7ff62de4dc4935860fc7d260fa6017292ab30aa3d0c69919ae77"
       define_method(:install) do
-        bin.install "runner-guard"
+        bin.install "runner-guard-linux-amd64" => "runner-guard"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.8.0/runner-guard_2.8.0_linux_arm64.tar.gz"
-      sha256 "5b96321551f9e59a404fcd457d9dc81d9751918d5a43a984def0f84cf358fc4f"
+      url "https://github.com/Vigilant-LLC/runner-guard/releases/download/v2.9.0/runner-guard_2.9.0_linux_arm64.tar.gz"
+      sha256 "5e8940c70ea4f29329c87c5030bfdc63a6548e502277ca9fc7cb3f5248952b4d"
       define_method(:install) do
-        bin.install "runner-guard"
+        bin.install "runner-guard-linux-arm64" => "runner-guard"
       end
     end
   end
 
   test do
-    system "#{bin}/runner-guard", "--version"
+    system "#{bin}/runner-guard", "version"
   end
 end
